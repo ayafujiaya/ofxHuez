@@ -9,10 +9,10 @@ moge = "/Users/Yuki/work/ofxHuez/"
 
 class TwitterConnects
 
-@@CONSUMER_KEY = 'rf9zcYEVzIeSFaUIXcfbQ'
-@@CONSUMER_SECRET = 'gsypmVjmEj7zDF9eqApTCcmq7YANxSPAXCL06zHYl0'
-@@ACCESS_TOKEN = '975278400-uhA2rhDEAmFVfUjni0Tc7ZaxGFwwtBH3I1GkUxyy'
-@@ACCESS_TOKEN_SECRET = 'ZPa6lBVI2VP7QMXz3XIBXmzQ8zGK02OHE9DsoSHFY'
+@@CONSUMER_KEY = ''
+@@CONSUMER_SECRET = ''
+@@ACCESS_TOKEN = ''
+@@ACCESS_TOKEN_SECRET = ''
 
 def getTweets(encodedQuery) 
   consumer = OAuth::Consumer.new(
