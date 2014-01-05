@@ -15,7 +15,7 @@ Addons
 plese refer to this URL  
 [ofxAddons](http://ofxaddons.com/)
 
-Environmental
+Environment
 =============
 * OSX 10.6 and the later
 * SDK 10.6 only
@@ -24,4 +24,10 @@ Environmental
 
 Tutorial
 ========
-Coming Soon
+
+`cd ./bin`
+`ruby tweet_to_txt.rb`
+
+You'll get tweet from twitter and export tweet txt file to ./bin directory.
+
+
