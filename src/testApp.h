@@ -5,7 +5,6 @@
 #include "ofxKinect.h"
 #include "ofxVjKinect.h"
 #include "beatDetect.h"
-#include "ofxHttpUtils.h"
 #include "ofxXmlSettings.h"
 
 class testApp : public ofBaseApp{
@@ -34,6 +33,60 @@ class testApp : public ofBaseApp{
 	wstring stringConvertToW(const char* c_buff);
 	void debug_page();
 	void reset();
-
-		
+    
+    //kinectの変数
+    ofxKinect kinect;
+    float angle;
+    int step;
+    
+    //kinectのエフェクトの変数宣言
+    ofxVjKinect kinectVJ;
+    int color_sec;
+    float _distance;
+    
+    //BeatTrackingの変数
+    beatDetect bd;
+    int testApp_buffer_size = 1024;
+    int testApp_fft_size = 512;
+    int kick_timer;
+    
+    //文字列の変数
+    ofxTrueTypeFontUC font_mid;
+    vector<wstring> strline;
+    float alpha;
+    vector<ofxB> ofxBMath;
+    vector<float> str_alpha;
+    
+    
+    //検索文字表示の変数
+    wstring wSearch;
+    float searchX, searchY;
+    
+    //各種切り替えのBool変数
+    bool kinectShow, stringShow,kinectCircle , showSearch;
+    
+    //文字列の変数
+    ofxTrueTypeFontUC font_ja, font_title;
+    int str_kick_timer;
+    
+    bool shadow_show;
+    
+    //グリッチ関連の変数
+    bool debugOn;
+    bool glitch_on;
+    ofImage img;
+    ofImageQualityType quality;
+    ofImage preGlitch;
+    ofImage trans;
+    
+    //beat detect
+    float audioInput;
+    
+    //motion rec
+    bool delay_move;
+    bool delay_rec;
+    int preStep;
+    float fadeX, fadeY;
+    int fade_str_num;
+    int alpha_timer_2;
 };

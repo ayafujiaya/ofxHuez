@@ -1,115 +1,6 @@
 #include "testApp.h"
 
 
-
-//kinectの変数
-ofxKinect kinect;
-float angle;
-int step;
-
-	
-//kinectのエフェクトの変数宣言
-ofxVjKinect kinectVJ;
-//vector<ofxSoundBox> soundParticle;
-int color_sec;
-float _distance;
-
-
-//BeatTrackingの変数
-beatDetect bd;
-int testApp_buffer_size = 1024;
-int testApp_fft_size = 512;
-int kick_timer;
-
-
-//文字列の変数
-ofxTrueTypeFontUC font_mid, font_small, font_big;
-ofTrueTypeFont font_en;
-vector<wstring> strline;
-float alpha;
-vector<ofxB> ofxBMath;
-vector<float> str_alpha;
-
-
-//検索文字表示の変数
-wstring wSearch;
-float searchX, searchY;
-
-
-//twitterへのhttpRequest
-ofxHttpUtils httpUtils;
-int counter;
-string action_url;
-map<string, map<int, string> > tweets;
-vector<wstring> wstr;
-string searchName, hogehoge;
-wstring whogehoge;
-
-
-//各種切り替えのBool変数
-bool kinectShow, stringShow,kinectCircle , stringWhite, showSearch, PoeOrTwi, hashTag, tweetInter, str_show;
-
-//文字列の変数
-float str_x, str_y;
-float str_radius;
-float str_angle;
-ofxTrueTypeFontUC font_ja, font_title;//, font_small, font_mid, font_big;
-ofTrueTypeFont yabai_font;
-vector<wstring> wstr_1;
-vector<float> vx, vy, vr, va, vax, VVX, VVY;
-bool moveChangeBool;
-//beatDetect bd;
-vector<float> alpha_timer;
-int str_kick_timer;
-ofImage wings;
-int alpha_timer_2;
-int fade_str_num;
-float fadeX, fadeY;
-bool fade_str_show;
-bool shadow_show;
-
-
-//yabai_node
-//ofxJSONElement result; //修正
-float yabai_soku_flo;
-int yabai_100;
-vector<float> yabaX, yabaY, yabaAx;
-ofImage yabai_over, yabai_def, yabai_on, arrow, arrow_2, yaba_gli_over, yaba_gli_def, yaba_gli_on, yaba_gli_on_1,yaba_gli_on_2;
-ofImage arrow_big_off, arrow_big_on;
-
-bool mouseOn;
-bool debugOn;
-bool json_parse;
-bool yabai_node_bool;
-bool parsingSuccessful;
-bool glitch_on;
-ofImage img;
-ofImageQualityType quality;
-ofImage preGlitch;
-bool str_dance;
-ofImage trans;
-float audioInput;
-ofImage fukidashi;
-
-//lights
-ofLight lights;
-
-/*ーーーーーーーーーーーーーーーーーーーーディレイ！！ーーーーーーーーーーーーーーーーーー*/
- bool delay_move;
- int delay_counter_2;
- int delay_switch_time;
- vector< vector<int> > bool_count;
- wstring call_past[100];
- bool delay_on;
- bool delay_rec;
-int preStep;
-ofImage kCircleImage;
-ofImage kRectImage;
-float byWidth, byHeight;
-
-//各種設定ファイルへディレクトリへのパス。
-//char path_to_root = "/Users/Yuki/Desktop/ofxHuez/";
-
 //--------------------------------------------------------------
 
 wstring testApp::stringConvertToW(const char* c_buff) {
@@ -144,7 +35,7 @@ void testApp::setup(){
     ofHideCursor();
 	
 	//フォントの読み込み
-	font_mid.loadFont("やさしさゴシック.ttf", 64); //32 //twitter 用
+	font_mid.loadFont("やさしさゴシック.ttf", 84); //32 //twitter 用
     font_title.loadFont("やさしさゴシック.ttf", 108);
 	
 	//kinectのセットアップ
@@ -295,7 +186,10 @@ void testApp::draw(){ //どろーーーーーーーーーーーーーーーー�
     
     //影を残す処理
 	if (shadow_show || bd.isKick() || bd.isSnare() || bd.isHat()) {
-      ofFill();
+      
+        ofSetColor(255, 255, 255);
+        ofRect(0, 0, ofGetWidth(), ofGetHeight());
+                ofNoFill();
     } else {
         //背景黒塗り
         ofSetColor(0, 0, 0);
@@ -450,25 +344,12 @@ void testApp::debug_page() {
 	}
 	ofDrawBitmapString("stringShow( i )", 10, 165);
 	
-	if (stringWhite) {
-		ofSetColor(255, 0, 0);
-	} else {
-		ofSetColor(0, 0, 255);
-	}
-	ofDrawBitmapString("string color change( a )", 10, 180);
-	
 	if (showSearch) {
 		ofSetColor(255, 0, 0);
 	} else {
 		ofSetColor(0, 0, 255);
 	}
 	ofDrawBitmapString("twitter search word( e )", 10, 195);
-	if (yabai_node_bool) {
-		ofSetColor(255, 0, 0);
-	} else {
-		ofSetColor(0, 0, 255);
-	}
-	ofDrawBitmapString("yabai_node_bool ( y )", 10, 210);
 }
 
 
