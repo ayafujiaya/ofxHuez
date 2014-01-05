@@ -5,28 +5,27 @@
 #include "ofxKinect.h"
 #include "ofxVjKinect.h"
 #include "beatDetect.h"
-#include "ofxXmlSettings.h"
 
 class testApp : public ofBaseApp{
 
-	public:
-		void setup();
-		void update();
-		void draw();
-		void exit();
-
-		void keyPressed  (int key);
-		void keyReleased(int key);
-		void mouseMoved(int x, int y );
-		void mouseDragged(int x, int y, int button);
-		void mousePressed(int x, int y, int button);
-		void mouseReleased(int x, int y, int button);
-		void windowResized(int w, int h);
-		void dragEvent(ofDragInfo dragInfo);
-		void gotMessage(ofMessage msg);
-		void audioReceived(float* input, int bufferSize, int nChannels);
+public:
+    void setup();
+    void update();
+    void draw();
+    void exit();
+    
+    void keyPressed  (int key);
+    void keyReleased(int key);
+    void mouseMoved(int x, int y );
+    void mouseDragged(int x, int y, int button);
+    void mousePressed(int x, int y, int button);
+    void mouseReleased(int x, int y, int button);
+    void windowResized(int w, int h);
+    void dragEvent(ofDragInfo dragInfo);
+    void gotMessage(ofMessage msg);
+    void audioReceived(float* input, int bufferSize, int nChannels);
 	
-	
+	//************user functions************
 	void stringDrawTwitter(int num);
 	void stringDrawPoetry(int num);
 	void bNumReset();
@@ -51,11 +50,12 @@ class testApp : public ofBaseApp{
     int kick_timer;
     
     //文字列の変数
-    ofxTrueTypeFontUC font_mid;
+    ofxTrueTypeFontUC font_mid, font_title;
     vector<wstring> strline;
     float alpha;
     vector<ofxB> ofxBMath;
     vector<float> str_alpha;
+    const char* path_to_txt;
     
     
     //検索文字表示の変数
@@ -63,13 +63,7 @@ class testApp : public ofBaseApp{
     float searchX, searchY;
     
     //各種切り替えのBool変数
-    bool kinectShow, stringShow,kinectCircle , showSearch;
-    
-    //文字列の変数
-    ofxTrueTypeFontUC font_ja, font_title;
-    int str_kick_timer;
-    
-    bool shadow_show;
+    bool kinectShow, stringShow,kinectCircle , showSearch, shadow_show;
     
     //グリッチ関連の変数
     bool debugOn;
@@ -81,6 +75,7 @@ class testApp : public ofBaseApp{
     
     //beat detect
     float audioInput;
+    int str_kick_timer;
     
     //motion rec
     bool delay_move;

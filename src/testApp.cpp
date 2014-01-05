@@ -78,11 +78,12 @@ void testApp::setup(){
 	fadeY = ofRandom(ofGetHeight() / 2, ofGetHeight());
     
     //tweetのtxtファイルからの読み込み
+    path_to_txt = "/Users/Yuki/work/of_preRelease_v007_osx/apps/myapp/ofxHuez/bin/data/search_result.txt";
     strline.clear();
     bNumReset();
     setlocale( LC_ALL, "ja_JP.UTF-8" );
     FILE * fp;
-    if((fp=fopen("/Users/Yuki/work/ofxHuez/search_result.txt","r"))==NULL){
+    if((fp=fopen(path_to_txt,"r"))==NULL){
         cout << "no" << endl;
     }else{
         char buff[256]="";
@@ -185,14 +186,17 @@ void testApp::draw(){ //どろーーーーーーーーーーーーーーーー�
 	}
     
     //影を残す処理
-	if (shadow_show || bd.isKick() || bd.isSnare() || bd.isHat()) {
-      
-        ofSetColor(255, 255, 255);
-        ofRect(0, 0, ofGetWidth(), ofGetHeight());
-                ofNoFill();
+	if (shadow_show) {
+        ofNoFill();
     } else {
         //背景黒塗り
         ofSetColor(0, 0, 0);
+        ofRect(0, 0, ofGetWidth(), ofGetHeight());
+    }
+    
+    //画面を音に同期させて白くする処理
+    if (bd.isKick() || bd.isSnare() || bd.isHat()) {
+        ofSetColor(255, 255, 255);
         ofRect(0, 0, ofGetWidth(), ofGetHeight());
     }
     
@@ -244,7 +248,7 @@ void testApp::draw(){ //どろーーーーーーーーーーーーーーーー�
 	}
 	
     //twitter timeline の描画
-	for (int i=0; i < ofxBMath.size(); i++) {
+	for (int i=1; i < ofxBMath.size(); i++) {
 		ofPushMatrix();
         
 		ofTranslate(ofxBMath[i].x, ofxBMath[i].y, ofxBMath[i].z);
@@ -296,7 +300,7 @@ void testApp::stringDrawPoetry(int num) {
         bNumReset();
         setlocale( LC_ALL, "ja_JP.UTF-8" );
         FILE * fp;
-        if((fp=fopen("/Users/Yuki/work/ofxHuez/search_result.txt","r"))==NULL){
+        if((fp=fopen(path_to_txt,"r"))==NULL){
             cout << "no" << endl;
         }else{
             char buff[256]="";
