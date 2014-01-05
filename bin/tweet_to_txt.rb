@@ -5,7 +5,7 @@ require 'uri'
 
 
 
-moge = "./data/"
+path_to_txt = "/Users/Yuki/work/ofxHuez/search_result.txt"
 
 class TwitterConnects
 
@@ -37,7 +37,7 @@ JSON.parse(response.body).each do |status|
   if (items.instance_of?(Array))
     items.each do |statusesItems|
     if (statusesItems.instance_of?(Hash))
-      open("/Users/Yuki/work/ofxHuez/search_result.txt", "a") {|f| f.write(statusesItems['text'] + "\n")}
+      open(path_to_txt, "a") {|f| f.write(statusesItems['text'] + "\n")}
       puts statusesItems['text']
     end
   end
@@ -54,8 +54,8 @@ searchText = gets()
 
 while(true) do
   puts "--------------------------------"
-  open("/Users/Yuki/work/ofxHuez/search_result.txt", "w") {|f| f.write('')}
-  open("/Users/Yuki/work/ofxHuez/search_result.txt", "a") {|f| f.write(searchText)}
+  open(path_to_txt, "w") {|f| f.write('')}
+  open(path_to_txt, "a") {|f| f.write(searchText)}
   hoge.getTweets(searchText)  
   puts "--------------------------------"
   sleep(30)
