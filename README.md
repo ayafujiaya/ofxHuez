@@ -1,7 +1,5 @@
 ofxHuez
 ====
-
-App for VJ what you can track twitter and kinect effect.
 ![ofxHuez](http://25.media.tumblr.com/5d72808c0b6c93392f2e0f17613b58e2/tumblr_myvjgeBmz61rtc945o1_1280.png)
 
 Addons
@@ -41,7 +39,7 @@ You'll get tweet from twitter and export tweet txt file to ./bin directory.
 
 ###OpenFrameworks Side in Xcode
 Open The Xcode Project File and Set up Xcode. e.g.(importing some addons and SDK 10.6)  
-Edit 'path_to_txt'
+Edit 'path_to_txt'  
 Finally Build and Run.
 
 
