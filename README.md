@@ -6,11 +6,11 @@ App for VJ what you can track twitter and kinect effect.
 
 Addons
 ======
-*ofxBMath(own thing)
-*ofxVJKinect(own thing)
-*ofxKinect
-*ofxBeatTracking
-*ofxTrueTypeFontUC
+* ofxBMath(own thing)
+* ofxVJKinect(own thing)
+* ofxKinect
+* ofxBeatTracking
+* ofxTrueTypeFontUC
 
 plese refer to this URL  
 [ofxAddons](http://ofxaddons.com/)
