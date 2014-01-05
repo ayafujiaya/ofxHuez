@@ -14,3 +14,14 @@ Addons
 
 plese refer to this URL  
 [ofxAddons](http://ofxaddons.com/)
+
+Environmental
+=============
+* OSX 10.6 and the later
+* SDK 10.6 only
+* Xcode 4.x
+* openFrameworks v007  
+
+Tutorial
+========
+Coming Soon
